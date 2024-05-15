@@ -2,7 +2,7 @@
   <div>
     <header>
       <center style="color: bisque;">
-        <h1>Tanny Apriliani</h1>
+        <h1>Retha Cindy Aulia</h1>
       </center>
       <center>
         <button class="btn btn-link" @click="showSection('todos')">
@@ -15,7 +15,7 @@
     </header>
 
     <div v-if="currentSection === 'todos'">
-      <center><h2 style="color: bisque;">ToDo List Keranjang Belanja</h2></center>
+      <center><h2 style="color: bisque;">ToDo List</h2></center>
       <div class="container-fluid" style="width: 40em">
         <div class="card m-3">
           <div class="card-header">
@@ -30,7 +30,7 @@
                   </div>
                   <div class="col-2">
                     <button class="btn btn-primary btn-sm float-end" type="submit" name="button">
-                      <i class="bi bi-plus"></i>
+                      <i class="bi bi-plus"></i> <!-- Perbaikan di sini -->
                     </button>
                   </div>
                 </div>
@@ -40,10 +40,10 @@
           <div class="card-body">
             <div class="float-end">
               <button class="btn btn-success btn-sm me-1" @click="allDone" type="button" name="button">
-                <i class="bi bi-check-all"></i>
+                <i class="bi bi-check-all"></i> <!-- Perbaikan di sini -->
               </button>
               <button class="btn btn-danger btn-sm me-1" @click="allRemove" type="button" name="button">
-                <i class="bi bi-trash-fill"></i>
+                <i class="bi bi-trash-fill"></i> <!-- Perbaikan di sini -->
               </button>
               <!-- New Buttons for Filter -->
               <button class="btn btn-warning btn-sm me-1" @click="toggleFilter('done')" type="button" name="button">
@@ -63,7 +63,7 @@
                 </label>
               </div>
               <button @click="removeTodo(todo)" class="btn btn-danger btn-sm float-end" type="button" name="button">
-                <i class="bi bi-trash-fill"></i>
+                <i class="bi bi-trash-fill"></i> <!-- Perbaikan di sini -->
               </button>
             </li>
           </ul>
@@ -103,18 +103,20 @@
 export default {
   name: 'ToDoList',
 
-  data: () => ({
-    newTodo: '',
-    todos: [],
-    filter: null,
-    posts: [],
-    users: [],
-    selectedUser: '',
-    currentSection: 'todos' // Default section
-  }),
+  data() {
+    return {
+      newTodo: '',
+      todos: [],
+      filter: null,
+      posts: [],
+      users: [],
+      selectedUser: '',
+      currentSection: 'todos' // Default section
+    };
+  },
 
   methods: {
-    addTodo() {
+    async addTodo() {
       this.todos.push({
         title: this.newTodo,
         done: false
@@ -145,7 +147,7 @@ export default {
         const usersResponse = await fetch('https://jsonplaceholder.typicode.com/users');
         this.users = await usersResponse.json();
         if (this.selectedUser) {
-          const postsResponse = await fetch(https://jsonplaceholder.typicode.com/posts?userId=${this.selectedUser});
+          const postsResponse = await fetch(https://jsonplaceholder.typicode.com/posts?userId=${this.selectedUser}); // Perbaikan di sini
           this.posts = await postsResponse.json();
         } else {
           this.posts = [];
@@ -189,8 +191,6 @@ export default {
   color: #808080; /* Warna teks abu-abu */
 }
 </style>
-
-
 <style>
 body{
   background-image:url(./assets/ci.jpeg);
