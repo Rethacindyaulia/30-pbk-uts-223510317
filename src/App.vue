@@ -191,7 +191,6 @@ export default {
 </style>
 
 
-
 <style>
 body{
   background-image:url(./assets/ci.jpeg);
