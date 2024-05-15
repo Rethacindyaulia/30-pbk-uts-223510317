@@ -147,7 +147,7 @@ export default {
         const usersResponse = await fetch('https://jsonplaceholder.typicode.com/users');
         this.users = await usersResponse.json();
         if (this.selectedUser) {
-          const postsResponse = await fetch(https://jsonplaceholder.typicode.com/posts?userId=${this.selectedUser}); // Perbaikan di sini
+          const postsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${this.selectedUser}`); // Perbaikan di sini
           this.posts = await postsResponse.json();
         } else {
           this.posts = [];
